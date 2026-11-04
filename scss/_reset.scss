@@ -1,0 +1,43 @@
+@use "variables" as *;
+
+// Réinitialisation générale
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Comportement général
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  color: $black;
+  font-size: 16px;
+}
+
+// Liens
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Listes
+ul,
+ol {
+  list-style: none;
+}
+
+// Images
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// Formulaires
+button,
+input {
+  font: inherit;
+}
