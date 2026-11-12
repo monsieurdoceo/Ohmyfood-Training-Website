@@ -1,0 +1,140 @@
+@use "variables" as *;
+
+.restaurants {
+  padding: 50px 20px;
+  background-color: $background;
+
+  &__title {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+// CARTE RESTAURANT
+.restaurant-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: $white;
+  box-shadow: $shadow;
+  width: 100%;
+  min-width: 0;
+
+  &__link {
+    display: block;
+    color: inherit;
+    height: 100%;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: relative;
+    padding: 15px;
+  }
+
+  &__name {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__location {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 7px 12px;
+    border-radius: 3px;
+    background-color: $tertiary;
+    color: $green-dark;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__favorite {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .restaurant-card__heart,
+    .restaurant-card__heart-filled {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 23px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .restaurant-card__heart {
+      opacity: 1;
+    }
+
+    .restaurant-card__heart-filled {
+      opacity: 0;
+      background: linear-gradient(175deg, $secondary, $primary);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: scale(0.7);
+    }
+
+    input:checked ~ .restaurant-card__heart {
+      opacity: 0;
+    }
+
+    input:checked ~ .restaurant-card__heart-filled {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    input:focus-visible ~ .restaurant-card__heart {
+      outline: 2px solid $primary;
+      outline-offset: 4px;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    &__image {
+      height: 200px;
+    }
+  }
+}
+
+// GRILLE TABLETTE ET DESKTOP
+@media screen and (min-width: $tablet) {
+  .restaurants {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 30px;
+      row-gap: 30px;
+      align-items: stretch;
+    }
+  }
+}

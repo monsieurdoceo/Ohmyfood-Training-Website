@@ -1,0 +1,88 @@
+@use "variables" as *;
+
+.footer {
+  width: 100%;
+  padding:40px 0;
+  background-color: $dark;
+  color: $white;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 110px;
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__navigation {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      list-style: none;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: $white;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    li:nth-child(-n+2) a {
+      font-weight: 500;
+    }
+
+    i {
+      width: 14px;
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    .footer {
+      &__content {
+        width: 100%;
+        max-width: none;
+        padding: 0 60px;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 65px;
+      }
+
+      &__navigation {
+        ul {
+          flex-direction: row;
+          align-items: center;
+          gap: 18px;
+        }
+
+        li:nth-child(2) {
+          margin-right: 25px;
+        }
+
+        a {
+          font-size: 14px;
+        }
+      }
+
+      &__logo {
+        width: 100px;
+        margin-left: 200px;
+      }
+    }
+  }
+}
