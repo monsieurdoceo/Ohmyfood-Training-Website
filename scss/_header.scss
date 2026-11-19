@@ -5,7 +5,7 @@
   height: 63px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: $white;
   box-shadow: $shadow;
   position: relative;
@@ -13,10 +13,16 @@
 
   &__logo {
     width: 170px;
+    margin-right: auto;
+    margin-left: auto;
 
     img {
       width: 100%;
       height: auto;
     }
+  }
+
+  &__return {
+      margin-left: 20px;
   }
 }
